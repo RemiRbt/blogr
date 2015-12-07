@@ -25,7 +25,7 @@ foreach ($CategorieArticles as $cat) {
 			<div class="col-xs-12 col-md-12">
 				<article>
 
-					<img src="" alt="">
+                    <img src='<?php echo $cat['chemin'] ?>'>
 
 					<h1><?php echo $cat['Titre'] ?></h1>
 

@@ -263,7 +263,7 @@ function getCategorieArticles($idCategorie) {
 
 $myBdd = connectDB();
 
-$reponse = $myBdd->query('SELECT articles.id_article, articles.Titre, articles.date, articles.text FROM articles, categories, categorie_article WHERE articles.id_article=categorie_article.id_article AND categories.id_categorie=categorie_article.id_categorie AND categories.id_categorie ='.$idCategorie);
+$reponse = $myBdd->query('SELECT articles.id_article, articles.Titre, articles.date, articles.text, medias.chemin  FROM articles, categories, categorie_article, medias WHERE articles.id_article=categorie_article.id_article AND categories.id_categorie=categorie_article.id_categorie AND categories.id_categorie ='.$idCategorie.' AND articles.id_article=medias.id_article');
 
 $i=1;
 while ($myData = $reponse->fetch())
@@ -272,6 +272,7 @@ while ($myData = $reponse->fetch())
 	$CategorieArticles[$i]['Titre'] = $myData['Titre'];
 	$CategorieArticles[$i]['date'] = $myData['date'];
 	$CategorieArticles[$i]['text'] = $myData['text'];
+	$CategorieArticles[$i]['chemin'] = $myData['chemin'];
 	$i++;
 }
 
@@ -300,7 +301,7 @@ function get5LastArticles() {
     // a coriger, ne prend pas les 5 plus récent --> article 1 a 2 categorie et n'est donc pas pris en compte, pourquoi ?
     //SELECT articles.id_article, articles.Titre, articles.text, articles.date, categories.nom FROM articles, categories, categorie_article WHERE articles.id_article=categorie_article.id_article AND categories.id_categorie=categorie_article.id_categorie group by categories.nom having count(articles.id_article) > 1 ORDER BY date DESC LIMIT 0,5
 
-    $reponse = $myBdd->query('SELECT articles.id_article, articles.Titre, articles.text, articles.date, categories.nom, categories.id_categorie FROM articles, categories, categorie_article WHERE articles.id_article=categorie_article.id_article AND categories.id_categorie=categorie_article.id_categorie ORDER BY date DESC LIMIT 0,5');
+    $reponse = $myBdd->query('SELECT articles.id_article, articles.Titre, articles.text, articles.date, categories.nom, categories.id_categorie, medias.chemin FROM articles, categories, categorie_article, medias WHERE articles.id_article=categorie_article.id_article  AND articles.id_article=medias.id_article AND categories.id_categorie=categorie_article.id_categorie ORDER BY date DESC LIMIT 0,5');
 
     $i=1;
     while ($myData = $reponse->fetch())
@@ -311,6 +312,7 @@ function get5LastArticles() {
         $my5LastArticles[$i]['date']         = $myData['date'];
         $my5LastArticles[$i]['categorie']    = $myData['nom'];
         $my5LastArticles[$i]['id_categorie'] = $myData['id_categorie'];
+        $my5LastArticles[$i]['chemin'] = $myData['chemin'];
         $i++;
     }
 

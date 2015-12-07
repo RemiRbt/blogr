@@ -4,7 +4,6 @@ include 'includes/header.php';
 
 $LastArticles = get5LastArticles();
 
-
 ?>
 
 <div class="container">
@@ -28,7 +27,7 @@ $LastArticles = get5LastArticles();
 				
 					<div class="col-xs-12 col-md-6">
 
-					<img src="" alt="">
+					<img src="<?php echo $LastArticles[1]['chemin'] ?>">
 					
 					</div>
 				
@@ -55,7 +54,7 @@ $LastArticles = get5LastArticles();
 			<div class="col-xs-12 col-md-6">
 				<article>
 
-					<img src="" alt="">
+					<img src="<?php echo $LastArticles[2]['chemin'] ?>">
 
 					<h1><?php echo $LastArticles[2]['Titre'] ?></h1>
 
@@ -70,7 +69,7 @@ $LastArticles = get5LastArticles();
 			<div class="col-xs-12 col-md-6">
 				<article>
 
-					<img src="" alt="">
+					<img src="<?php echo $LastArticles[3]['chemin'] ?>">
 
 					<h1><?php echo $LastArticles[3]['Titre'] ?></h1>
 
@@ -87,7 +86,7 @@ $LastArticles = get5LastArticles();
 			<div class="col-xs-12 col-md-6">
 				<article>
 
-					<img src="" alt="">
+					<img src="<?php echo $LastArticles[4]['chemin'] ?>">
 
 					<h1><?php echo $LastArticles[4]['Titre'] ?></h1>
 
@@ -102,7 +101,7 @@ $LastArticles = get5LastArticles();
 			<div class="col-xs-12 col-md-6">
 				<article>
 
-					<img src="" alt="">
+					<img src="<?php echo $LastArticles[5]['chemin'] ?>">
 
 					<h1><?php echo $LastArticles[5]['Titre'] ?></h1>
 

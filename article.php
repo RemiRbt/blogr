@@ -19,7 +19,7 @@ $TheArticle=getTheArticle($_GET['article']);
 			<div class="col-xs-12 col-md-12">
                 <article>
 
-                    <img src="" alt="">
+                    <img src='<?php echo $TheArticle['chemin'] ?>'>
 
                     <h1><?php echo $TheArticle['Titre'] ?></h1>
 
