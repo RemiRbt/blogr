@@ -94,70 +94,112 @@ button {
 /* MENU
 ----------------------------------------*/
 
-header {
-    position: fixed;
-    z-index: 10;
-    top: 0;
+.navbar {
+	position: fixed;
+	z-index: 10;
     height: 100px;
     line-height: 100px;
     width: 100%;
-    color: white;
+    color: #fff;
     background: #f2c14e;
-    box-shadow: 0 0 8px #CBCBCB;
+    box-shadow: 0 0 8px #555;
 }
 
-header h1 {
-    font-size: 3em;
+.navbar-nav {
+    margin:0;
+}
+
+.navbar-default,
+.navbar-default:active,
+.navbar-default:focus {
+    text-align: center;
+    box-shadow: 0 0 5px #555;
+}
+
+.navbar-default div.navbar-collapse {
+    border-top:none;
+    box-shadow:none;
+}
+
+.container > .navbar-header {
+    margin-left: 15px;
+}
+
+.navbar-default .navbar-nav {
+	float: right;
+    background: #f2c14e;
+}
+
+.navbar-default .navbar-nav > li > a {
+	margin: auto 20px;
+	padding: 0;
+	width: 130px;
+}
+
+.navbar-default .navbar-nav > li:first-of-type a {
+	font-size: 150%;
+}
+
+.navbar-default .navbar-brand {
+    font-size: 2em;
     text-transform: uppercase;
 }
 
-header a {
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:active,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:active {
     color: #fff;
 }
 
-header nav p, header nav li {
-    padding: 0 1em;
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    background-color: #f2c14e;
+    color: #fff;
 }
 
-/*header nav ul {
-    display: none;
-    padding: 0;
-    position: absolute;
-    top: 100px;
-    color: white;
-    background: #f2c14e;
-}*/
-
-header nav ul {
-    display: none;
-    padding: 0;
-    position: absolute;
-    top: 100px;
-    color: white;
-    background: #f2c14e;
+.navbar-toggle {
+  position: relative;
+  float: right;
+  margin: 0;
+  padding: 0;
+  margin-right: 30px;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 4px;
+  height: 100px;	
 }
 
-header nav ul li {
-    list-style-type: none;
-    line-height: 50px;
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: transparent;
 }
 
-header nav ul li:hover {
-    background: rgba(0, 0, 0, 0.1);
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
 }
 
-header nav ul li a {
-    font-family: 'Montserrat Light';
-    display: block;
-    width: 15vw;
-    padding: 5px;
-}
 
-header nav p:hover + ul,
-header nav ul:hover {
-    display: block;
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav > li > a {
+		height: 70px;
+	}
+	.navbar-nav > li > a {
+		line-height: 70px;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a,
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:active,
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus,
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: #fff;
 }
-
+}
 
 /* POP UP CONNECTION
 ----------------------------------------*/
@@ -234,10 +276,6 @@ section article {
     box-shadow: 0 0 10px #ccc;
 }
 
-section article img {
-    height: 300px;
-}
-
 section article h1 {
     text-transform: uppercase;
     margin-bottom: 0;
@@ -259,9 +297,13 @@ section article p {
     text-align: justify;
 }
 
-img {
-    height: 100px;
+.inlineimg {
+    height: 300px;
     width: 100%;
+}
+
+.article_container .inlineimg {
+	height: 150px;
 }
 
 .form-signin button {/*
@@ -293,10 +335,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    
-    header p, header ul, header button {
-        display: none;
-    }
     
 }
 

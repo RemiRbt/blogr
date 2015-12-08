@@ -25,7 +25,7 @@ foreach ($CategorieArticles as $cat) {
 			<div class="col-xs-12 col-md-12">
 				<article>
 
-                    <img src='<?php echo $cat['chemin'] ?>'>
+                    <div style="background:url(<?php echo $cat['chemin'] ?>) no-repeat center center;background-size:cover;" class="inlineimg"></div>
 
 					<h1><?php echo $cat['Titre'] ?></h1>
 

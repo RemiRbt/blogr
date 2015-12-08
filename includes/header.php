@@ -21,9 +21,9 @@ if(isset($_POST['login'])) {
     <link rel="stylesheet" href="/cms/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-	<script src="js/jquery.min.js"></script>
+	<script src="/cms/js/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-	<script src="js/script.js"></script>
+	<script src="/cms/js/script.js"></script>
 
 
 </head>
@@ -39,58 +39,48 @@ $Categories = getCategorie();
 ?>
 
 <header>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-6 col-md-6">
 
-				<h1><a href="index.php">Blog</a></h1>
-
-			</div>
-
-			<div class="col-xs-6 col-md-6">
-				<div class="row">
-					<nav role="navigation">
-					    
-					    <div class="col-xs-2 col-md-2">
-					        
-					        <p><a href="articles.php">Articles</a></p>
-					        
-					    </div>
-					    
-						<div class="col-xs-5 col-md-5">
-
-							<p>Catégories <i class="fa fa-caret-down"></i></p>
-
-							<ul>
-								<?php foreach($Categories as $cat) { ?>
-									<li>
-										<a href="categories.php?categorie=<?php echo $cat['id_categorie'] ?>"><?php echo $cat['nom'] ?></a>
-									</li>
-								<?php } ?>
-							</ul>
-
-						</div>
-
-						<div class="col-xs-5 col-md-5">
-                            <?php if(isset($_SESSION['user'])){ ?>
-                               
-                               <p style="margin-right: 50px;"><?php echo $_SESSION['user']['login']; ?> <i class="fa fa-caret-down"></i></p>
-                               
-                               <ul>
-                                   <li><a href="dashboard/">Dashboard</a></li>
-                                   <li><a href="/cms/destroy.php">Se déconnecter</a></li>
-                               </ul>
-                                
-                            <?php }else { ?>
-							<button id="button-connect">Se connecter</button>
-                            
-                            <?php } ?>
-						</div>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</div>
+<nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <h1><a class="navbar-brand" href="index.php">TPF Blog</a></h1>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="index.php"><i class="fa fa-home"></i></a></li>
+              <li><a href="articles.php">Articles</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégories <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+				<?php foreach($Categories as $cat) { ?>
+					<li>
+						<a href="categories.php?categorie=<?php echo $cat['id_categorie'] ?>"><?php echo $cat['nom'] ?></a>
+					</li>
+				<?php } ?>
+                </ul>
+              </li>
+			  <li class="dropdown">
+			<?php if(isset($_SESSION['user'])){ ?>                               
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <?php echo $_SESSION['user']['login']; ?> <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="dashboard/">Dashboard</a></li>
+						<li><a href="/cms/destroy.php">Se déconnecter</a></li>
+					</ul>
+					<?php }else { ?>
+						<button id="button-connect">Se connecter</button>
+					<?php } ?>
+			  </li>
+			</ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+</nav>
+	
 </header>
 
 <aside>
@@ -140,3 +130,6 @@ $Categories = getCategorie();
         </div>
     </div>
 </aside>
+
+
+	<script src="/cms/js/bootstrap.js"></script>

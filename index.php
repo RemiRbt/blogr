@@ -27,7 +27,7 @@ $LastArticles = get5LastArticles();
 				
 					<div class="col-xs-12 col-md-6">
 
-					<img src="<?php echo $LastArticles[1]['chemin'] ?>">
+					<div style="background:url(<?php echo $LastArticles[1]['chemin'] ?>) no-repeat center center;background-size:cover;" class="inlineimg"></div>
 					
 					</div>
 				
@@ -54,7 +54,7 @@ $LastArticles = get5LastArticles();
 			<div class="col-xs-12 col-md-6">
 				<article>
 
-					<img src="<?php echo $LastArticles[2]['chemin'] ?>">
+					<div style="background:url(<?php echo $LastArticles[2]['chemin'] ?>) no-repeat center center;background-size:cover;" class="inlineimg"></div>
 
 					<h1><?php echo $LastArticles[2]['Titre'] ?></h1>
 
@@ -69,7 +69,7 @@ $LastArticles = get5LastArticles();
 			<div class="col-xs-12 col-md-6">
 				<article>
 
-					<img src="<?php echo $LastArticles[3]['chemin'] ?>">
+					<div style="background:url(<?php echo $LastArticles[3]['chemin'] ?>) no-repeat center center;background-size:cover;" class="inlineimg"></div>
 
 					<h1><?php echo $LastArticles[3]['Titre'] ?></h1>
 
@@ -86,7 +86,7 @@ $LastArticles = get5LastArticles();
 			<div class="col-xs-12 col-md-6">
 				<article>
 
-					<img src="<?php echo $LastArticles[4]['chemin'] ?>">
+					<div style="background:url(<?php echo $LastArticles[4]['chemin'] ?>) no-repeat center center;background-size:cover;" class="inlineimg"></div>
 
 					<h1><?php echo $LastArticles[4]['Titre'] ?></h1>
 
@@ -101,7 +101,7 @@ $LastArticles = get5LastArticles();
 			<div class="col-xs-12 col-md-6">
 				<article>
 
-					<img src="<?php echo $LastArticles[5]['chemin'] ?>">
+					<div style="background:url(<?php echo $LastArticles[5]['chemin'] ?>) no-repeat center center;background-size:cover;" class="inlineimg"></div>
 
 					<h1><?php echo $LastArticles[5]['Titre'] ?></h1>
 

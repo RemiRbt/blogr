@@ -301,7 +301,7 @@ function get5LastArticles() {
     // a coriger, ne prend pas les 5 plus récent --> article 1 a 2 categorie et n'est donc pas pris en compte, pourquoi ?
     //SELECT articles.id_article, articles.Titre, articles.text, articles.date, categories.nom FROM articles, categories, categorie_article WHERE articles.id_article=categorie_article.id_article AND categories.id_categorie=categorie_article.id_categorie group by categories.nom having count(articles.id_article) > 1 ORDER BY date DESC LIMIT 0,5
 
-    $reponse = $myBdd->query('SELECT articles.id_article, articles.Titre, articles.text, articles.date, categories.nom, categories.id_categorie, medias.chemin FROM articles, categories, categorie_article, medias WHERE articles.id_article=categorie_article.id_article  AND articles.id_article=medias.id_article AND categories.id_categorie=categorie_article.id_categorie ORDER BY date DESC LIMIT 0,5');
+    $reponse = $myBdd->query('SELECT articles.id_article, articles.Titre, articles.text, articles.date, categories.nom, categories.id_categorie, medias.chemin FROM articles, categories, categorie_article, medias WHERE articles.id_article=categorie_article.id_article AND articles.id_article=medias.id_article AND categories.id_categorie=categorie_article.id_categorie ORDER BY date DESC LIMIT 0,5');
 
     $i=1;
     while ($myData = $reponse->fetch())
@@ -330,7 +330,7 @@ function getAllArticles() {
 
 	$myBdd = connectDB();
 	
-    $reponse = $myBdd->query('SELECT articles.id_article, articles.Titre, articles.text, articles.date, categories.nom, categories.id_categorie FROM articles, categories, categorie_article WHERE articles.id_article=categorie_article.id_article AND categories.id_categorie=categorie_article.id_categorie GROUP BY articles.id_article');
+    $reponse = $myBdd->query('SELECT articles.id_article, articles.Titre, articles.text, articles.date, categories.nom, categories.id_categorie, medias.chemin FROM articles, categories, categorie_article, medias WHERE articles.id_article=categorie_article.id_article AND articles.id_article=medias.id_article AND categories.id_categorie=categorie_article.id_categorie GROUP BY articles.id_article');
 
     $i=1;
     while ($myData = $reponse->fetch())
@@ -341,6 +341,7 @@ function getAllArticles() {
         $myAllArticle[$i]['date'] = $myData['date'];
         $myAllArticle[$i]['categorie'] = $myData['nom'];
         $myAllArticle[$i]['id_categorie'] = $myData['id_categorie'];
+        $myAllArticle[$i]['chemin'] = $myData['chemin'];
         $i++;
     }
 

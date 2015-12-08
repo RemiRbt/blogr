@@ -40,6 +40,8 @@ $categories = getCategorie();
                     <?php foreach ($allArticles as $val) { ?>
                         <div class="col-xs-12 col-md-4 <?php echo $val['categorie'] ?>">
                             <article>
+							
+								<div style="background:url(<?php echo $val['chemin'] ?>) no-repeat center center;background-size:cover;" class="inlineimg"></div>
 
                                 <h1><?php echo $val['Titre'] ?></h1>
 
