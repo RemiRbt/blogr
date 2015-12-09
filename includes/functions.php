@@ -175,6 +175,7 @@ function getCategorieByArticle($idArticle) {
 
 	$reponse = $myBdd->query($sql);
 
+	$i=1;
 	while ($myData = $reponse->fetch()) {
 		$myCategorie[$i]['id_categorie'] = $myData['id_categorie'];
 		$myCategorie[$i]['nom'] = $myData['nom'];

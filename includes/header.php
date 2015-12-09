@@ -77,8 +77,8 @@ $Categories = getCategorie();
 					<?php } ?>
 			  </li>
 			</ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
+          </div>
+        </div>
 </nav>
 	
 </header>

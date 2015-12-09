@@ -15,8 +15,6 @@ $user = $userReq->fetch();
 
 if($psswd == $user['password']){
 
-	echo '<p>Vous êtes connecté.</p>';
-
 	$_SESSION['user']['login'] = $user['login'];
 	$_SESSION['user']['mail']  = $user['email'];
 	$_SESSION['user']['role']  = $user['id_role'];
