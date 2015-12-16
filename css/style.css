@@ -136,12 +136,9 @@ button {
 	width: 130px;
 }
 
-.navbar-default .navbar-nav > li:first-of-type a {
-	font-size: 150%;
-}
-
-.navbar-default .navbar-brand {
-    font-size: 2em;
+.navbar-brand {
+    font-size: 1.7em;
+	margin-left: 20px;
     text-transform: uppercase;
 }
 
@@ -198,7 +195,22 @@ button {
 	.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus,
 	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
     color: #fff;
+	}
 }
+
+.dropdown-menu {
+	border: none;
+	border-radius: 0;
+	background: #f2c14e;
+	text-align: center;
+}
+
+.dropdown-menu > li > a {
+	color: #fff;
+}
+
+.dropdown-menu > li > a:hover {
+	background: rgba(0, 0, 0, .1);
 }
 
 /* POP UP CONNECTION
@@ -342,11 +354,12 @@ footer {
 ----------------------------------------*/
 
 .article_filter {
-	margin: 20px auto 40px;;
+	margin: 20px auto 40px;
 }
 
 .article_filter a {
-	margin: 20px;
+	display: inline-block;
+	margin: 10px;
 	font-family: 'Montserrat', sans-serif;
     font-size: 1em;
     border: 3px solid #f2c14e;

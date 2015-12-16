@@ -41,7 +41,7 @@ $Categories = getCategorie();
 <header>
 
 <nav class="navbar navbar-default">
-        <div class="container">
+        <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -53,7 +53,7 @@ $Categories = getCategorie();
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="index.php"><i class="fa fa-home"></i></a></li>
+              <!--<li><a href="index.php"><i class="fa fa-home"></i></a></li>-->
               <li><a href="articles.php">Articles</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégories <span class="caret"></span></a>
