@@ -1,10 +1,11 @@
 <?php
-include '../includes/header.php';
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-if($_SESSION['user']['role'] != "1"){
-    header('Location: ../index.php');
+include $root.'/cms/includes/header.php';
+
+if($_SESSION['user']['role'] != 1){
+    header('Location: '.$root.'/cms/index.php');
 }
-
 
 $usersCount = usersCount();
 
@@ -17,9 +18,20 @@ $allRoles = getAllRoles();
 
 ?>
 
-<section>
-    <div class="container">
-        <div class="col-xs-12 col-md-8 col-md-offset-2">
+<div class="container">
+    <section>
+       
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+            
+                <h1>Utilisateurs</h1>
+                
+            </div>
+        </div>
+          
+        <div class="col-xs-12 col-md-12">
+            
+            <article>
             
             <table>
 
@@ -54,7 +66,7 @@ $allRoles = getAllRoles();
 
                             </select>
 
-                            <button type="submit">Enregistrer</button>
+                            <button type="submit" class="button-orange">Enregistrer</button>
 
                         </form>
                     </td>
@@ -64,6 +76,12 @@ $allRoles = getAllRoles();
 
             </table>
         
+		</article>
+            
         </div>
-    </div>
-</section>
+    </section>
+</div>
+
+<?php
+include $root.'/cms/includes/footer.php';
+?>

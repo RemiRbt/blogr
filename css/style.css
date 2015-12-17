@@ -77,25 +77,12 @@ input {
    color: white;
 }
 
-
-/* BUTTONS
-----------------------------------------*/
-
-button {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
-    color: white;
-    border: 3px solid white;
-    background: none;
-    padding: 5px;
-}
-
-
 /* MENU
 ----------------------------------------*/
 
 .navbar {
 	position: fixed;
+	top: 0;
 	z-index: 10;
     height: 100px;
     line-height: 100px;
@@ -318,7 +305,7 @@ section article p {
 	height: 150px;
 }
 
-.form-signin button {/*
+.form-signin button {
     font-family: 'Montserrat', sans-serif;
     font-size: 1em;
     color: white;
@@ -326,12 +313,10 @@ section article p {
     padding: 5px;
     margin: 15px 0 5px 0;
     border: none;
-    outline: none;*/
+    outline: none;
     border-color: #f2c14e;
-    color: #f2c14e;
     text-align: right;
 }
-
 
 /* FOOTER
 ----------------------------------------*/
@@ -348,6 +333,123 @@ footer {
 
 @media (max-width: 768px) {
     
+}
+
+
+/* MENU DASHBOARD
+----------------------------------------*/
+
+[id="menu-dashboard"] {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    float: left;
+    height: calc(100vh - 100px);
+    width: 16.666667%;
+    padding: 2%;
+    background: #f2c14e;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-around;
+    z-index: 10;
+}
+[id="menu-dashboard"] a {
+    color: white;
+}
+[id="dashboard"] {
+    margin-left: 16.666667%;
+}
+
+
+/* EDITION ARTICLE
+----------------------------------------*/
+
+[id="edit-article"] li {
+    list-style-type: none;
+}
+
+
+/* TABLES
+----------------------------------------*/
+table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+thead {
+    background: #F2C14E;
+    color: white;
+}
+tr:nth-of-type(2n) {
+    background: #efefef;
+}
+th {
+    padding: 2%;
+}
+td {
+    padding: 1%;
+}
+/* FORMS
+----------------------------------------*/
+input, textarea {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    color: white;
+    background: #cbcbcb;
+    padding: 10px;
+    margin: 15px 0 5px 0;
+    border: none;
+    outline: none;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+}
+input[type="checkbox"] {
+    width: auto;
+}
+textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 50vh;
+}
+select {
+    font-family: 'Montserrat';
+    padding: 1%;
+}
+select option:selected {
+    background: orange;
+}
+/* BUTTONS
+----------------------------------------*/
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: white;
+    border: 3px solid white;
+    background: none;
+    padding: 5px;
+}
+button:hover {
+    cursor: pointer;
+}
+
+.button-orange {
+    color: #F2C14E;
+    border-color: #F2C14E;
+    background: white;
 }
 
 /* A TRIER

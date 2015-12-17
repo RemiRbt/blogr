@@ -49,18 +49,18 @@ $Categories = getCategorie();
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <h1><a class="navbar-brand" href="index.php">TPF Blog</a></h1>
+            <h1><a class="navbar-brand" href="/cms/index.php">TPF Blog</a></h1>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <!--<li><a href="index.php"><i class="fa fa-home"></i></a></li>-->
-              <li><a href="articles.php">Articles</a></li>
+              <li><a href="/cms/articles.php">Articles</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégories <span class="caret"></span></a>
                 <ul class="dropdown-menu">
 				<?php foreach($Categories as $cat) { ?>
 					<li>
-						<a href="categories.php?categorie=<?php echo $cat['id_categorie'] ?>"><?php echo $cat['nom'] ?></a>
+						<a href="/cms/categories.php?categorie=<?php echo $cat['id_categorie'] ?>"><?php echo $cat['nom'] ?></a>
 					</li>
 				<?php } ?>
                 </ul>
@@ -69,7 +69,7 @@ $Categories = getCategorie();
 			<?php if(isset($_SESSION['user'])){ ?>                               
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <?php echo $_SESSION['user']['login']; ?> <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="dashboard/">Dashboard</a></li>
+						<li><a href="/cms/dashboard/">Dashboard</a></li>
 						<li><a href="/cms/destroy.php">Se déconnecter</a></li>
 					</ul>
 					<?php }else { ?>

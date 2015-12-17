@@ -1,31 +1,43 @@
 <?php
 session_start();
 
-include '../functions.php';
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-$titre = $_POST['titre'];
+include $root.'/cms/includes/functions.php';
 
-$text  = $_POST['text'];
 
-$date = date("Y-m-d");
+$titre     = $_POST['titre'];
+
+$text      = $_POST['text'];
+
+$date      = date("Y-m-d");
+
+$categorie = $_POST['categorie'];
 
 $myDB = connectDB();
 
-if(isset($_GET)){
-
-	$sql = 'UPDATE articles SET ('.$_SESSION['user']['id'].', "'.$date.'", "'.$titre.'", "'.$text.'")';
-
-	$articleInsert = $myDB->query($sql);
 	
-}else {
-	
-	$sql = 'INSERT INTO articles(id_utilisateur, date, Titre, text) VALUES ('.$_SESSION['user']['id'].', "'.$date.'", "'.$titre.'", "'.$text.'")';
+$sql = 'INSERT INTO articles(id_utilisateur, date, Titre, text) VALUES ('.$_SESSION['user']['id'].', "'.$date.'", "'.$titre.'", "'.$text.'")';
 
-	$articleInsert = $myDB->query($sql);
+$articleInsert = $myDB->query($sql);
 
-	var_dump($articleInsert);
+echo '<p>'.$sql.'</p>';
+
+$sql = 'SELECT id_article FROM articles WHERE id_utilisateur LIKE '.$_SESSION['user']['id'].' AND Titre LIKE "'.$titre.'" AND text LIKE "'.$text.'" AND date LIKE "'.$date.'"  ORDER BY id_article DESC LIMIT 1';
+
+$idArticle = $myDB->query($sql)->fetchColumn();
+
+echo '<p>'.$idArticle.'</p>';
+
+foreach ($categorie as $id) {
+
+	$sql = 'INSERT INTO categorie_article(id_article, id_categorie) VALUES ('.$idArticle.', '.$id.')';
+
+	$categorieInsert = $myDB->query($sql);
 
 }
 
+
+header('Location: article.php');
 
 ?>

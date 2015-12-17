@@ -496,7 +496,7 @@ function getAllUsers() {
 }
 
 
-// USERS COUNT 
+// ROLES COUNT 
 
 function rolesCount() {
 
@@ -574,7 +574,6 @@ function editArticleById($myIdArticle) {
 	return $article;
 }
 
-
 // GET USER ARTICLES
 
 function getUserArticles($idUser) {
@@ -585,20 +584,28 @@ function getUserArticles($idUser) {
 
 	$articleReq = $myDB->query($sql);
 
-	$i = 0;
-
-	while($myData = $articleReq->fetch()){
-		$userArticle[$i]['id']    = $myData['id_article'];
-		$userArticle[$i]['date']  = $myData['date'];
-		$userArticle[$i]['titre'] = $myData['Titre'];
-		$userArticle[$i]['text']  = $myData['text'];
-
-		$i++;
-	}
+	$verif = getUserArticles($idUser);
 
     disconnectDB($myDB);
 
-	return $userArticle;
+	if($verif != 0) {
+
+		$i = 1;
+
+		while($myData = $articleReq->fetch()){
+			$userArticle[$i]['id']    = $myData['id_article'];
+			$userArticle[$i]['date']  = $myData['date'];
+			$userArticle[$i]['titre'] = $myData['Titre'];
+			$userArticle[$i]['text']  = $myData['text'];
+
+			$i++;
+		}
+
+		return $userArticle;
+
+	}else {
+		return null;
+	}
 
 }
 
